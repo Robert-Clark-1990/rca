@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="faq-section">
+    <div class="faq-container h-100 col-12 col-md-8 offset-md-2">
+        <div>
+            <h1 class="faq-header mt-5">Frequently Asked Questions</h1>
+            <p class="text-center mb-3">Have you ever wanted to ask a stranger a question? Well, chances are someone has already
+                asked it, so why not peruse the following questions to see if they scratch that proverbial itch?
+            </p>
+        </div>
+        <button class="accordion">Where can I get your books?</button>
+        <div class="panel">
+            <p> At the moment, my books are pretty much exclusive to Amazon. I’d love to have them in a bookstore,
+                but doing so is mighty difficult in my situation, so for now you’ll have to hurl some money in
+                Amazon’s direction.
+                <br><br>
+                You can find all the books on my Amazon author page:
+                <a class="about-button m-2" href="https://www.amazon.co.uk/Robert-Clark/e/B071995JVN/ref=as_li_ss_tl?ref_=dbs_p_ebk_r00_abau_000000&linkCode=ll2&tag=robertclark08-21&linkId=488a35f8180a31666463dc56cdac079a&language=en_GB"
+                    target="_blank">Amazon UK</a>
+                <a class="about-button m-2" href="https://www.amazon.com/Robert-Clark/e/B071995JVN/ref=as_li_ss_tl?ie=UTF8&linkCode=ll2&tag=robertclarkau-20&linkId=d2997c155fd5a6986d861f6dcba6cbe8&language=en_US"
+                    target="_blank">Amazon US</a></p>
+        </div>
+    
+        <button class="accordion">What order should I read the James Stone books in?</button>
+        <div class="panel">
+            <p>My goal is to make each book accessible to a newcomer, but then I went and wrote The Fate of Glass as a
+                direct sequel, which kind of threw things out the window. My advice would be either to read them in order of
+                release, or chronologically.
+                <br><br>
+                The ark I have in mind for these books will occasionally result in some books being part of a more focused
+                series, but I endeavour to write others that are standalone James Stone stories.
+                <br><br>
+                I’ll try to remember to update this when I release new books, but for now (the great British year of 2020)
+                the chronological order of James Stone books is:
+                </p>
+                <ul>
+                    <li>The Killing Business</li>
+                    <li>The Glorious Dead</li>
+                    <li>The Damned and The Buried</li>
+                    <li>Aftermath</li>
+                    <li>Impact</li>
+                    <li>Ricochet</li>
+                    <li>No More Shadows</li>
+                    <li>The Line</li>
+                    <li>The Fate of Glass</li>
+                    <li>Second Solace</li>
+                </ul>
+        </div>
+    
+        <button class="accordion">Are there audio versions available?</button>
+        <div class="panel">
+            <p>At time of writing, No More Shadows is the only book I have made available on Audible. This isn’t because I
+                don’t want to. I listen to audiobooks almost every day, and get through way more of them than I do physical
+                books, but getting them done is time consuming and costly, so until I’m making a proper profit from writing,
+                they unfortunately have to be on the back burner for now.</p>
+        </div>
+    
+        <button class="accordion">Can I buy a signed copy from you?</button>
+        <div class="panel">
+            <p>I don’t sell signed copies because I think it’s a bit unfair to charge you lovely readers more money for
+                something that amounts to a squiggle on a page. However, if you own a physical copy of my books and happen
+                across me at an event, then I’d be more than happy to sign/selfie/spill my innermost secrets to you! (maybe
+                not that last one).</p>
+        </div>
+    
+        <button class="accordion">I loved your book! What can I do about it?</button>
+        <div class="panel">
+            <p>How incredibly kind of you to ask. You can pop a review on your friendly neighbourhood Amazon storefront, or
+                Goodreads, or anywhere else that allows you to review my books!
+                <br><br>
+                And thanks for doing that, you lovely son of a gun you!</p>
+        </div>
+    
+        <button class="accordion">What if I don’t like what you’ve written?</button>
+        <div class="panel">
+            <p>Unfortunately, you’ll have to overthrow a government.</p>
+        </div>
+    
+        <button class="accordion">Where are the James Stone books set?</button>
+        <div class="panel">
+            <p>Where aren’t they set? (actually, quite a lot of places, so I’ll answer the question properly)
+                <br><br>
+                So far, I’ve taken James to Afghanistan, England, America, Canada, Bruges and France, and he shows no sign
+                of slowing down!</p>
+        </div>
+    
+        <button class="accordion">Do your books contain foul language?</button>
+        <div class="panel">
+            <p>I try to reign it in as much as possible, but I do sometimes talk about chickens (get it, fowl language???)
+                I’m a hoot. (a little more for you there)
+                <br><br>
+                Seriously though, I do have some swear words in. If that bothers you, you probably won’t like all the
+                torture, murder, theft, violence and sarcasm that I manage to fit in around the F’ing and Jeffing.</p>
+        </div>
+        <div>
+            <p class="text-center mt-3">Question not answered?
+                <br>
+                <br>
+                <a class="about-button m-2" href="{{ url_for('contact') }}">Get in touch!</a>
+            </p>
+        </div>
+    </div>
+    </section>
+
+{% endblock %}

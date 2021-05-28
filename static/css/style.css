@@ -20,6 +20,16 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     text-transform: uppercase;
     font-size: xx-large;
+    text-shadow: 2px 2px 5px black;
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+li {
+    list-style-type: none;
 }
 
 /*-----------------------------------------------------Homepage*/
@@ -42,8 +52,109 @@ h1, h2, h3, h4, h5, h6 {
 
 /*-----------------------------------------------------About*/
 
+#about-section {
+    background-image: url(../images/about.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+div.about-container {
+    position: relative;
+    width: 100%;
+    max-height: 80vh;
+    padding-top: 50px;
+    color: white;
+}
+
+.about-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.about-text-para {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 15px; 
+    margin-bottom: 0;
+}
+
+.about-text {
+    margin-bottom: 0;
+}
+
+.about-button {
+    border: 2px solid white;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.about-button:hover {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out; 
+    -moz-transition: all 0.30s ease-in-out;
+    -webkit-transition: all 0.30s ease-in-out;
+}
 
 /*-----------------------------------------------------FAQ*/
+
+#faq-section {
+    background-image: url(../images/faq.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.faq-container {
+    position: relative;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    overflow: auto;
+}
+
+.faq-header{
+    text-align: center;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 251, 251);
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Big Shoulders Display', cursive;
+    color: white;
+    font-size: xx-large;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 20px 18px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    overflow: hidden;
+    text-align: center;
+}
 
 
 /*-----------------------------------------------------Media Queries*/

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--about-->
+
+<section id="about-section">
+    <div class="about-container">
+        <div class="about-row h-100 mt-5">
+            <div class="col-md-5 offset-md-1 about-text-para">
+                <h1>Who gave that monkey a typewriter?</h1>
+                <p class="about-text"> Robert Clark (or Rob as he is mostly heckled) is the author of the James Stone thriller series.
+                Rob began his own literary journey in 2012 while studying a Masters Degree in Creative Writing at the University of
+                Salford, wherein the spark of James Stone was ignited.
+                <br><br>
+                As he moved back home to the sunny seaside town of Scarborough, work continued on his novel until someone skimmed
+                through the first draft and told him he had himself a jolly thrilling read. ‘No More Shadows’ was released in 2017.
+                Between 2017 and 2020, Rob released 10 novels in total, all revolving around the eponymous James Stone and his worldwide
+                adventures.
+                <br><br>
+                By day, Rob is a Professional Crastinator, but by night he furtively types away at his keyboard, bringing Stone’s
+                explosive endeavours to the page. His dream is to make enough money from being an author to open up a wildlife sanctuary
+                with his wife, and be able to afford the nice bread for his sandwiches.
+                <br><br>
+                You can stay up to date on all things Rob in a multitude of ways. You can follow him on Facebook, Twitter or Instagram via the
+                links below. If newsletters are more your thing, you'll be pleased to know you can subscribe to Rob's via the link below. Doing so 
+                will grant you exclusive access to the latest book news, as well as the occasional competition or sale! Or if you just wanted to get
+                in touch to let Rob know you enjoyed his books (and stroke his ego in the process), you can email him via the link below.
+                <br><br>
+                <a class="about-button m-2" href="https://www.facebook.com/RobertClarkAuthor/" target="_blank">Facebook</a>
+                <a class="about-button m-2" href="https://twitter.com/RobClarkAuthor" target="_blank">Twitter</a>
+                <a class="about-button m-2" href="https://www.instagram.com/robertclarkauthor/" target="_blank">Instagram</a>
+                <a class="about-button m-2" href="{{ url_for('signup') }}">Newsletter</a>
+                <a class="about-button m-2" href="{{ url_for('contact') }}">Email Rob</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section> 
+
+{% endblock %}
