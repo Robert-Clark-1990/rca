@@ -19,8 +19,18 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Big Shoulders Display', cursive;
     color: white;
     text-transform: uppercase;
+    text-decoration: none;
     font-size: xx-large;
     text-shadow: 2px 2px 5px black;
+}
+
+.nav-text:hover {
+    text-decoration: none;
+    color: #d62b1c;
+    transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out; 
+    -moz-transition: all 0.30s ease-in-out;
+    -webkit-transition: all 0.30s ease-in-out;
 }
 
 .text-center {
@@ -45,10 +55,35 @@ li {
 .homepage-text {
     font-size: 5em;
     font-style: italic;
+    text-shadow: 2px 2px 5px black;
 }
 
 /*-----------------------------------------------------Books*/
 
+#book-section {
+    background-image: url(../images/book-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.book-container {
+    position: relative;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    overflow: auto;
+}
+
+.book-header{
+    text-align: center;
+}
+
+.book-cover {
+    max-height: 600px;
+}
 
 /*-----------------------------------------------------About*/
 
@@ -58,6 +93,7 @@ li {
     background-size: cover;
     height: 100vh;
     width: 100vw;
+    overflow: auto;
 }
 
 div.about-container {
