@@ -1,0 +1,58 @@
+/*-----------------------------------------------------General Settings*/
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Big Shoulders Display', cursive;
+    text-transform: uppercase;
+}
+
+.white-text {
+    color: whitesmoke;
+}
+
+.black-text {
+    color: #141212;
+}
+
+.nav-text {
+    font-family: 'Big Shoulders Display', cursive;
+    color: white;
+    text-transform: uppercase;
+    font-size: xx-large;
+}
+
+/*-----------------------------------------------------Homepage*/
+
+.home-section {
+    background-image: url(../images/home-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.homepage-text {
+    font-size: 5em;
+    font-style: italic;
+}
+
+/*-----------------------------------------------------Books*/
+
+
+/*-----------------------------------------------------About*/
+
+
+/*-----------------------------------------------------FAQ*/
+
+
+/*-----------------------------------------------------Media Queries*/
+@media (min-width: 765px) {
+    .home-section {
+        background-image: url(../images/rca-homepage.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+    }
+}
