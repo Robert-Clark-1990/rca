@@ -44,14 +44,27 @@
     {% endblock %}
     
     <footer class="footer">
-        <div class="row">
-            <div class="col-12">
-                <p class="text-center">
-                    <a href="https://www.facebook.com/RobertClarkAuthor/" target="_blank" class="white-text footer-link p-1"><i class="ri-facebook-circle-fill"></i></a>
-                    <a href="https://twitter.com/RobClarkAuthor" target="_blank" class="white-text footer-link p-1"><i class="ri-twitter-fill"></i></a>
-                    <a href="https://www.instagram.com/robertclarkauthor/" target="_blank" class="white-text footer-link p-1"><i class="ri-instagram-fill"></i></a>
-                    <a href="{{ url_for('signup') }}" class="white-text footer-link p-1"><i class="ri-newspaper-fill"></i></a>
-                </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <p>
+                        <a href="#" class="disclaimer"><i class="ri-login-circle-line"></i></a>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p class="text-center">
+                        <a href="https://www.facebook.com/RobertClarkAuthor/" target="_blank" class="white-text footer-link"><i class="ri-facebook-circle-fill"></i></a>
+                        <a href="https://twitter.com/RobClarkAuthor" target="_blank" class="white-text footer-link"><i class="ri-twitter-fill"></i></a>
+                        <a href="https://www.instagram.com/robertclarkauthor/" target="_blank" class="white-text footer-link"><i class="ri-instagram-fill"></i></a>
+                        <a href="{{ url_for('signup') }}" class="white-text footer-link"><i class="ri-newspaper-fill"></i></a>
+                        
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p class="text-right">
+                       <a href="#" class="disclaimer">Site Design by Robert Clark Design</a>
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
