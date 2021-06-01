@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="book-page-section">
+        <div class="container book-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row mt-1 mb-2">
+                        <div class="col mt-5">
+                            <a class="about-button" href="{{ url_for('books') }}">Go Back</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <img class="book-cover-image" src="/static/images/fog.png" alt="{{book_id.book_name}}">
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <h1 class="white-text book-tagline mb-3">{{ book_id.tagline }}</h1>
+                            <h1 class="white-text mb-1">{{book_id.book_name}}</h1>
+                            <h4 class="white-text">Book {{book_id.series_number}} in the {{book_id.series_name}} series</h4>
+                            <p class="white-text mb-3">{{ book_id.description }}</p>
+                            <hr>
+                            <a class="about-button m-3 p-2" href="{{ book_id.link_1 }}">Amazon UK</a>
+                            <a class="about-button m-3 p-2" href="{{ book_id.link_2 }}">Amazon US</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>          
+    </div>
+</section>
+
+{% endblock %}

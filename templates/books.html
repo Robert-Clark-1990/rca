@@ -3,19 +3,19 @@
 {% block content %}
 
 <section id="book-section">
-        <div class="container-fluid">
+        <div class="container book-container">
             <div class="row">
-                <div class="book-container col-10 offset-1">
+                <div class="col-12">
                     <div class="row mt-1 mb-2">
                         <div class="col text-center mt-5">
                             <h2 class="white-text">Books</h2>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-5">
                         {% for book in books %}
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="card h-100 border-0">
-                                    <a href="#">
+                                <div class="card h-100 border-0 pb-3 pt-3 pl-1 pr-1">
+                                    <a href="{{ url_for('book', book_id=book._id)}}">
                                         <img class="card-img-top img-fluid" src="{{book.cover}}" alt="{{ book.name }}">
                                     </a>
                                 </div>

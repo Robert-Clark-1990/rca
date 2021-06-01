@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--import Big Shoulders font-->
+
+    <!-- Big Shoulders font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
@@ -13,6 +14,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
     <title>Robert Clark - Author</title>
 </head>
 <body>
@@ -39,8 +43,17 @@
     {% block content %}
     {% endblock %}
     
-    <footer>
-
+    <footer class="footer">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center">
+                    <a href="https://www.facebook.com/RobertClarkAuthor/" target="_blank" class="white-text footer-link p-1"><i class="ri-facebook-circle-fill"></i></a>
+                    <a href="https://twitter.com/RobClarkAuthor" target="_blank" class="white-text footer-link p-1"><i class="ri-twitter-fill"></i></a>
+                    <a href="https://www.instagram.com/robertclarkauthor/" target="_blank" class="white-text footer-link p-1"><i class="ri-instagram-fill"></i></a>
+                    <a href="{{ url_for('signup') }}" class="white-text footer-link p-1"><i class="ri-newspaper-fill"></i></a>
+                </p>
+            </div>
+        </div>
     </footer>
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

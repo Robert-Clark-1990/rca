@@ -32,8 +32,16 @@ def homepage():
 
 @app.route("/books")
 def books():
-    books = mongo.db.books.find()
+    books = mongo.db.books.find().sort("chronological_number")
     return render_template("books.html", books=books)
+
+
+# Route for individual book page
+@app.route("/books/<book_id>", methods=["GET", "POST"])
+def book(book_id):
+    book_id = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    
+    return render_template("book_page.html", book_id=book_id)
 
 
 # --------------------------ABOUT---------------------------- #
