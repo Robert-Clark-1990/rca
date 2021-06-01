@@ -3,43 +3,28 @@
 {% block content %}
 
 <section id="book-section">
-    <div class="book-container h-100 col-12 col-md-8 offset-md-2">
-        <div>
-            <h1 class="book-header mt-5 mb-5">Books</h1>
-        </div>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="card">
-                    <div class="carousel-item row g-0 w-100 h-100 active">
-                        <div class="col-md-4 image-section inline-block">
-                            <img class="book-cover" src="{{ url_for('static', filename='/images/tkb.png') }}" alt="The Killing Business">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="book-container col-10 offset-1">
+                    <div class="row mt-1 mb-2">
+                        <div class="col text-center mt-5">
+                            <h2 class="white-text">Books</h2>
                         </div>
-                        <div class="col-md-8 text-section inline-block">
-                            <div class="card-body">
-                                <h2 class="text-center white-text mb-2">The Killing Business</h2>
-                                <h5 class="text-center white-text mb-2">Every Nightmare starts somewhere</h5>
-                                <p>
-                                    War has come to Afghanistan. With Taliban rebels laying waste to the land, and invading allied forces fighting for peace, 
-                                    one man has come to witness the plight of those unfortunate enough to be stuck in the middle.
-                                    <br>
-                                    As a young journalist new to the game, Stone is thrust into a world of chaos and destruction, one where even the smallest action has powerful 
-                                    and deadly consequences. No matter his intentions, every step takes him way out of his depth, deep into the land where the darkest monsters lurk.
-                                </p>
-                                <a class="about-button m-3 p-2" href="#">Read More</a>
-                            </div>             
-                        </div>          
+                    </div>
+                    <div class="row">
+                        {% for book in books %}
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <div class="card h-100 border-0">
+                                    <a href="#">
+                                        <img class="card-img-top img-fluid" src="{{book.cover}}" alt="{{ book.name }}">
+                                    </a>
+                                </div>
+                            </div>                        
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+        </div>          
     </div>
 </section>
 
