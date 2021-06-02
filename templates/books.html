@@ -3,28 +3,55 @@
 {% block content %}
 
 <section id="book-section">
-        <div class="container book-container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row mt-1 mb-2">
-                        <div class="col text-center mt-5">
-                            <h2 class="white-text">Books</h2>
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        {% for book in books %}
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="card h-100 border-0 pb-3 pt-3 pl-1 pr-1">
-                                    <a href="{{ url_for('book', book_id=book._id)}}">
-                                        <img class="card-img-top img-fluid" src="{{book.cover}}" alt="{{ book.name }}">
-                                    </a>
-                                </div>
-                            </div>                        
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>          
+    <div class="row pt-5">
+        <div class="col-12">
+            <br><br>
+            <h1 class="white-text text-center mb-5">Books</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <ul class="carousel-items">
+                {% for book in books %}
+                <li>
+                    <a href="{{ url_for('book', book_id=book._id)}}">
+                        <img class="book-cover-slide" src="{{book.cover}}" alt="{{ book.name }}">
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="white-text text-center">What readers are saying about Robert's books</h2>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm">
+            <p class="text-center white-text">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+            </p>
+            <p class="text-center white-text">
+               <i>"Dark, addictive and unpredictable!"</i> 
+            </p>
+        </div>
+        <div class="col-sm">
+            <p class="text-center white-text">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+            </p>
+            <p class="text-center white-text">
+                <i>"Robert Clark is up there with the best of them."</i>
+            </p>
+        </div>
+        <div class="col-sm">
+            <p class="text-center white-text">
+                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+            </p>
+            <p class="text-center white-text">
+                <i>"Storytelling at its best."</i>
+            </p>
+        </div>
     </div>
 </section>
 

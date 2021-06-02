@@ -9,3 +9,5 @@
 [Remix Icons](https://remixicon.com/)
 
 [Navbar](https://www.youtube.com/watch?v=At4B7A4GOPg)
+
+[Slick Slider Carousel](http://kenwheeler.github.io/slick/)

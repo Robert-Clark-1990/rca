@@ -177,11 +177,11 @@ li {
 /*-----------------------------------------------------Books*/
 
 #book-section {
-    background-image: linear-gradient(to bottom right, rgb(43, 42, 42), rgb(19, 18, 18));
-    background-attachment: fixed;
+    background-image: url(../images/book-background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    height: 100vh;
+    width: 100vw;
 }
 
 #book-page-section {
@@ -218,6 +218,14 @@ li {
 
 .card {
     background: none;
+}
+
+.book-cover-slide {
+    width: 100%;
+}
+
+.carousel-items {
+    padding: 0;
 }
 
 /*-----------------------------------------------------About*/
@@ -433,4 +441,6 @@ div.about-container {
         height: 100vh;
         width: 100vw;
     }
+
+    
 }
