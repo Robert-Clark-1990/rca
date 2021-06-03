@@ -7,23 +7,48 @@
             <div class="row">
                 <div class="col-12">
                     <div class="row mt-1 mb-2">
-                        <div class="col mt-5">
+                        <div class="col-12 pl-5 mt-5">
                             <a class="about-button" href="{{ url_for('books') }}">Go Back</a>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-12 col-md-4">
-                            <img class="book-cover-image" src="/static/images/fog.png" alt="{{book_id.book_name}}">
+                        <div class="col-12 col-md-4 pl-4 pr-4">
+                            <img class="book-cover-image" src="{{book_id.cover}}" alt="{{book_id.book_name}}">
                         </div>
-                        <div class="col-12 col-md-8">
+                        <div class="col-12 col-md-8 pl-5 pr-5 pt-2">
                             <h1 class="white-text book-tagline mb-3">{{ book_id.tagline }}</h1>
                             <h1 class="white-text mb-1">{{book_id.book_name}}</h1>
                             <h4 class="white-text">Book {{book_id.series_number}} in the {{book_id.series_name}} series</h4>
-                            <p class="white-text mb-3">{{ book_id.description }}</p>
+                            <p class="white-text mb-3">
+                                {{ book_id.desc_p1 }}
+                                <br>
+                                {{ book_id.desc_p2 }}
+                                <br>
+                                <i>{{ book_id.desc_p3 }}</i>
+                            </p>
+                            <hr>
+                            <p class="white-text mb-3">Available in:</p>
+                                <p class="white-text">
+                                    {% if book_id.is_ebook == True %}
+                                        <i class="ri-checkbox-circle-line"></i> ebook   
+                                    {% endif %}
+                                    {% if book_id.is_paperback == True %}
+                                        <i class="ri-checkbox-circle-line ml-3"></i> paperback   
+                                    {% endif %}
+                                    {% if book_id.is_hardback == True %}
+                                        <i class="ri-checkbox-circle-line ml-3"></i> hardback   
+                                    {% endif %}
+                                    {% if book_id.is_audiobook == True %}
+                                        <i class="ri-checkbox-circle-line ml-3"></i> audiobook   
+                                    {% endif %}
+                                </p>  
                             <hr>
                             <a class="about-button m-3 p-2" href="{{ book_id.link_1 }}">Amazon UK</a>
                             <a class="about-button m-3 p-2" href="{{ book_id.link_2 }}">Amazon US</a>
+                            {% if book_id.link_3 %}
+                                <a class="about-button m-3 p-2" href="{{ book_id.link_3 }}">Audible</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

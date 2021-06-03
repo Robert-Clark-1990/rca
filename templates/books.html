@@ -3,54 +3,56 @@
 {% block content %}
 
 <section id="book-section">
-    <div class="row pt-5">
-        <div class="col-12">
-            <br><br>
-            <h1 class="white-text text-center mb-5">Books</h1>
+    <div class="book-container">
+        <div class="row pt-5">
+            <div class="col-12">
+                <br><br>
+                <h1 class="white-text text-center mb-5">Books</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-md-8 offset-md-2">
-            <ul class="carousel-items">
-                {% for book in books %}
-                <li>
-                    <a href="{{ url_for('book', book_id=book._id)}}">
-                        <img class="book-cover-slide" src="{{book.cover}}" alt="{{ book.name }}">
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <ul class="carousel-items">
+                    {% for book in books %}
+                    <li>
+                        <a href="{{ url_for('book', book_id=book._id)}}">
+                            <img class="book-cover-slide" src="{{book.cover}}" alt="{{ book.name }}">
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-12">
-            <h2 class="white-text text-center">What readers are saying about Robert's books</h2>
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="white-text text-center">What readers are saying</h2>
+            </div>
         </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-sm">
-            <p class="text-center white-text">
-                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
-            </p>
-            <p class="text-center white-text">
-               <i>"Dark, addictive and unpredictable!"</i> 
-            </p>
-        </div>
-        <div class="col-sm">
-            <p class="text-center white-text">
-                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
-            </p>
-            <p class="text-center white-text">
-                <i>"Robert Clark is up there with the best of them."</i>
-            </p>
-        </div>
-        <div class="col-sm">
-            <p class="text-center white-text">
-                <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
-            </p>
-            <p class="text-center white-text">
-                <i>"Storytelling at its best."</i>
-            </p>
+        <div class="row mt-3">
+            <div class="col-sm">
+                <p class="text-center white-text">
+                    <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                </p>
+                <p class="text-center white-text">
+                <i>"Dark, addictive and unpredictable!"</i> 
+                </p>
+            </div>
+            <div class="col-sm">
+                <p class="text-center white-text">
+                    <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                </p>
+                <p class="text-center white-text">
+                    <i>"Robert Clark is up there with the best of them."</i>
+                </p>
+            </div>
+            <div class="col-sm">
+                <p class="text-center white-text">
+                    <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i> <i class="ri-star-fill"></i>
+                </p>
+                <p class="text-center white-text">
+                    <i>"Storytelling at its best."</i>
+                </p>
+            </div>
         </div>
     </div>
 </section>

@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Big Shoulders Display', cursive;
     text-transform: uppercase;
@@ -209,7 +214,7 @@ li {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 50%;
 }
 
 .book-tagline {
@@ -441,6 +446,10 @@ div.about-container {
         height: 100vh;
         width: 100vw;
     }
-
-    
+    .book-cover-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
 }
