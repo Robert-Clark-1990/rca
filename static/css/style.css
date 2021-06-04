@@ -185,6 +185,53 @@ li {
     right: 10px
 }
 
+/*-----------------------------------------------------MailChimp*/
+
+#mc_embed_signup{
+    margin: auto;
+    width: 100%;
+    font: 50px 'Big Shoulders Display', cursive;
+    text-decoration: none;
+    padding: 0;
+}
+
+#mc_embed_signup input {
+    border: 2px solid white;
+    -webkit-appearance: none;
+}
+
+#mc_embed_signup input.email {
+    width: 100% !important;
+}
+
+#mc_embed_signup form {
+    display: block;
+    position: relative;
+    text-align: center !important;
+    padding: 10px 0 10px 3%;
+}
+
+.subscribe-btn {
+    border: 2px solid white;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.subscribe-btn:hover {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out; 
+    -moz-transition: all 0.30s ease-in-out;
+    -webkit-transition: all 0.30s ease-in-out;
+}
+
 /*-----------------------------------------------------Homepage*/
 
 .home-section {
@@ -313,10 +360,10 @@ div.about-container {
 
 #faq-section {
     background-image: url(../images/faq.png);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
+    background-position: center center;
 }
 
 .faq-container {
@@ -368,24 +415,28 @@ div.about-container {
     background-image: url(../images/signup.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 130vh;
     width: 100vw;
 }
 
 .signup-book-cover {
-    max-height: 600px;
+    max-height: 500px;
     -moz-box-shadow: 0 0 5px #fff;
     -webkit-box-shadow: 0 0 5px #fff;
     box-shadow: 0px 0px 5px #fff;
 }
 
-/*------------------------------------------------------------Sign Up*/
+.signup-tick {
+    font-size: 40px;
+}
+
+/*------------------------------------------------------------Contact*/
 
 #contact-section {
     background-image: url(../images/signup.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 130vh;
     width: 100vw;
 }
 
@@ -477,10 +528,19 @@ div.about-container {
         height: 100vh;
         width: 100vw;
     }
+
     .book-cover-image {
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
+    }
+
+    #mc_embed_signup{
+        margin: auto;
+        width: 50%;
+        font: 50px 'Big Shoulders Display', cursive;
+        text-decoration: none;
+        padding: 0;
     }
 }
