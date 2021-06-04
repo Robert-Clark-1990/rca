@@ -6,11 +6,6 @@
     box-sizing: border-box;
 }
 
-div {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Big Shoulders Display', cursive;
     text-transform: uppercase;
@@ -161,6 +156,33 @@ li {
 
 .social-media-links {
     display: none;
+}
+
+.btn {
+    border: 2px solid white;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out; 
+    -moz-transition: all 0.30s ease-in-out;
+    -webkit-transition: all 0.30s ease-in-out;
+}
+
+.alert {
+    position: fixed;
+    width: 200px;
+    height: 80px;
+    top: 100px;
+    right: 10px
 }
 
 /*-----------------------------------------------------Homepage*/
@@ -357,6 +379,15 @@ div.about-container {
     box-shadow: 0px 0px 5px #fff;
 }
 
+/*------------------------------------------------------------Sign Up*/
+
+#contact-section {
+    background-image: url(../images/signup.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
 
 /*-----------------------------------------------------Media Queries*/
 

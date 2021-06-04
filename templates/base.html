@@ -47,6 +47,19 @@
         </nav>
     </header>
 
+    <section>
+        <!-- Flash Messages -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+                            <p class="text-center"><i class="ri-information-fill"></i><strong>{{ message }}</strong></p>    
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </section>
+
     {% block content %}
     {% endblock %}
     

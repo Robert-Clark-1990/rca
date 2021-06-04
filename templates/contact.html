@@ -2,4 +2,44 @@
 
 {% block content %}
 
+<section id="contact-section">
+    <div class="container pt-5">
+        <div class="row pt-5">
+            <div class="col-12">
+                <h1 class="white-text text-center">Contact</h1>
+            </div>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <p class="text-center white-text">
+                    Please use the contact form below to get in touch.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 col-md-8 offset-md-2">
+                <form method="POST">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" id="name" name="name" required
+                        data-validation-required-message="Please enter your name">                        
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email Address" name="email" 
+                        aria-label="Email Address" required data-validation-required-message="Please enter your email address">
+                        <div id="emailHelp" class="form-text small white-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="message" placeholder="Message" aria-label="Message" name="message" rows="3" required 
+                        data-validation-required-message="Please enter your message"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
