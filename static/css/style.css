@@ -248,6 +248,14 @@ li {
     text-shadow: 2px 2px 5px black;
 }
 
+#signupModal {
+    background-color: darkslategrey;
+    -moz-box-shadow: 0 0 5px #fff;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: 0px 0px 5px #fff;
+
+}
+
 /*-----------------------------------------------------Books*/
 
 #book-section {
