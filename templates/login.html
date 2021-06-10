@@ -7,7 +7,7 @@
         <div class="row pt-5">
             <form class="col-12 col-md-8 offset-md-2" method="POST" action="{{ url_for('login') }}">
                 <div class="col-12">
-                    <h3 class="text-center white-text">Admin Log In</h3>
+                    <h1 class="text-center white-text">Admin Log In</h1>
                 <!--Username-->
                     <div class="row">
                         <div class="input-field col-12 col-md-8 offset-md-2">
@@ -28,6 +28,15 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row pt-5">
+            <div class="col-12 col-md-8 offset-md-2">
+                <h3 class="text-center white-text">Clicked on the little icon in the corner out of curiosity and now realised you can progress no further?</h3>
+                <a href="{{ url_for('homepage') }}" class="col-6 offset-3 p-2 mt-2 btn">Let's go back to the homepage</a>
+            </div>
         </div>
     </div>
 </section>

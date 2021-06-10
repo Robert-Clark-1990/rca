@@ -31,7 +31,7 @@ mongo = PyMongo(app)
 mail = Mail(app)
 
 
-# Login Required Decorator by PalletsProjects (Link in README)
+# Login Required Decorator
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -113,7 +113,6 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
                     "admin", username=session["user"]))
             else:
@@ -163,6 +162,41 @@ def book(book_id):
     book_id = mongo.db.books.find_one({"_id": ObjectId(book_id)})
 
     return render_template("book_page.html", book_id=book_id)
+
+
+# Route for adding a new book
+@app.route("/add_book", methods=["GET", "POST"])
+@login_required
+def add_book():
+
+    if request.method == "POST":
+        add_book = {
+            "book_name": request.form.get("book_name"),
+            "book_author": request.form.get("book_author"),
+            "series_name": request.form.get("series_name"),
+            "series_number": request.form.get("series_number"),
+            "chronological_number": request.form.get("chronological_number"),
+            "tagline": request.form.get("tagline"),
+            "desc_p1": request.form.get("desc_p1"),
+            "desc_p2": request.form.get("desc_p2"),
+            "desc_p3": request.form.get("desc_p3"),
+            "cover": request.form.get("cover"),
+            "link_1": request.form.get("link_1"),
+            "link_2": request.form.get("link_2"),
+            "link_3": request.form.get("link_3"),
+            "ISBN": request.form.get("ISBN"),
+            "is_ebook": request.form.get("is_ebook"),
+            "is_paperback": request.form.get("is_paperback"),
+            "is_hardback": request.form.get("is_hardback"),
+            "is_audiobook": request.form.get("is_audiobook"),
+
+        }
+        mongo.db.books.insert_one(add_book)
+
+        flash("Book Successfully Added")
+        return redirect(url_for("books"))
+
+    return render_template("add_book.html")
 
 
 # --------------------------ABOUT---------------------------- #

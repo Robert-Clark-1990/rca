@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="admin-section">
+    <div class="container pt-5">
+    <!--Form to allow user to input new book details to be added to database-->
+        <div class="row form-row">
+            <form class="col-12 pb-5" method="POST" action="{{ url_for('add_book') }}">
+                <div class="col-12">
+                    <h1 class="text-center white-text">Add Book</h1>
+                    <br>
+
+                <!--Book Name-->
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="book_name" name="book_name" type="text" class="materialize-textarea validate"
+                            oninvalid="this.setCustomValidity('Please enter a book name between 2 and 100 characters. Only alphanumeric characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="Book Name" minlength="2" maxlength="100" required></textarea>
+                            <span class="helper-text" data-error="wrong" data-success="right">Please enter a book name between 2 and 100 characters. Only alphanumeric characters are accepted</span>        
+                        </div>
+                    </div>
+
+                <!--Author Name-->
+                    <div class="row">   
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="book_author" name="book_author" type="text" class="validate"
+                            oninvalid="this.setCustomValidity('Please enter author name between 2 and 50 characters. Only alphanumeric characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="Book Author" minlength="2" maxlength="50" required></textarea>
+                            <span class="helper-text" data-error="wrong" data-success="right">Please enter author name between 2 and 50 characters. Only alphanumeric characters are accepted</span>
+                        </div>
+                    </div>
+
+                <!--Series Name-->
+                    <div class="row">   
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="series_name" name="series_name" type="text" class="validate"
+                            oninvalid="this.setCustomValidity('Please enter author name between 2 and 50 characters. Only alphanumeric characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="Series Name" minlength="2" maxlength="50" required></textarea>
+                            <span class="helper-text" data-error="wrong" data-success="right">Please enter series name between 2 and 50 characters. Only alphanumeric characters are accepted</span>
+                        </div>
+                    </div>
+
+                <!--Series Number-->
+                    <div class="row">   
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="series_number" name="series_number" type="text" class="validate"
+                            placeholder="Series Number" minlength="2" maxlength="50" required></textarea>
+                        </div>
+                    </div>
+
+                <!--Chronological Number-->
+                    <div class="row">   
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="chronological_number" name="chronological_number" type="text" class="validate"
+                            placeholder="Chronological Number" minlength="2" maxlength="50" required></textarea>
+                        </div>
+                    </div>
+                
+                <!--Tagline-->
+                    <div class="row">   
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="tagline" name="tagline" type="text" class="validate"
+                            placeholder="Tagline" minlength="2" maxlength="3000" required></textarea>
+                        </div>
+                    </div>
+            
+                <!--Book Description-->
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="desc_p1" name="desc_p1" class="validate" data-length="3000"
+                            oninvalid="this.setCustomValidity('Enter Book Description up to 3000 characters. Only alphanumeric characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="Paragraph 1" minlength="9" maxlength="3000" required></textarea>
+                            <span class="helper-text" data-error="wrong" data-success="right">Enter Book Description up to 3000 characters. Only alphanumeric characters are accepted</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="desc_p2" name="desc_p2" data-length="3000" placeholder="Paragraph 2"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <textarea id="desc_p3" name="desc_p3" data-length="3000" placeholder="Book Info"></textarea>
+                        </div>
+                    </div>
+
+                <!--Cover-->
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <label for="cover" class="form-label">Select Book Cover (500px x 800px)</label>
+                            <input class="form-control" type="file" id="cover" name="cover">
+                        </div>
+                    </div>
+
+                <!--Links-->
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <input id="link_1" name="link_1" type="text" class="validate count" pattern="(https?:\/\/.*(?))" data-length="400" maxlength="400"
+                            oninvalid="this.setCustomValidity('URL must begin with http(s)')" oninput="this.setCustomValidity('')" placeholder="Amazon UK" required>
+                            <span class="helper-text" data-error="wrong" data-success="right">URL must begin with http(s)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <input id="link_2" name="link_2" type="text" class="validate count" pattern="(https?:\/\/.*(?))" data-length="400" maxlength="400"
+                            oninvalid="this.setCustomValidity('URL must begin with http(s)')" oninput="this.setCustomValidity('')" placeholder="Amazon US" required>
+                            <span class="helper-text" data-error="wrong" data-success="right">URL must begin with http(s)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <input id="link_3" name="link_3" type="text" class="validate count" pattern="(https?:\/\/.*(?))" data-length="400" maxlength="400"
+                            oninvalid="this.setCustomValidity('URL must begin with http(s)')" oninput="this.setCustomValidity('')" placeholder="Audible" required>
+                            <span class="helper-text" data-error="wrong" data-success="right">URL must begin with http(s)</span>
+                        </div>
+                    </div>
+                        
+                <!--ISBN-->
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <input id="book_asin" name="book_asin" type="text" pattern="^[a-zA-Z0-9]{9,12}$" class="validate"
+                            oninvalid="this.setCustomValidity('Enter ASIN. Only alphanumeric characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="ISBN No" minlength="9" maxlength="12" required>
+                            <span class="helper-text" data-error="wrong" data-success="right">ASIN/ ISBN can be found in the Product Details section on the Amazon store page for the Book.</span>
+                        </div>
+                    </div>
+
+                <!--Available Formats-->
+                    <div class="form-check form-check-inline">
+                        <input id="is_ebook" class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="is_ebook">
+                        Ebook
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input id="is_paperback" class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="is_paperback">
+                        Paperback
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input id="is_hardback" class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="is_hardback">
+                        Hardback
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input id="is_audiobook" class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label" for="is_audiobook">
+                        Audiobook
+                        </label>
+                    </div>
+
+                <!--Submit Button-->
+                    <div class="row">
+                        <button type="submit" class="col-8 offset-2 btn">
+                            Submit Book
+                        </button>
+                    </div>  
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

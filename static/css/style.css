@@ -596,4 +596,8 @@ div.about-container {
         text-decoration: none;
         padding: 0;
     }
+
+    .form-row {
+        max-height: 70vw;
+    }
 }

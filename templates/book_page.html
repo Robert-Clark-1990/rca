@@ -8,7 +8,10 @@
                 <div class="col-12">
                     <div class="row mt-1 mb-2">
                         <div class="col-12 pl-5 mt-5">
-                            <a class="about-button" href="{{ url_for('books') }}">Go Back</a>
+                            <a class="btn mx-2 px-2" href="{{ url_for('books') }}">Go Back</a>
+                            {% if session.user == "rclarkauthor" %}
+                                <a href="#" class="mx-2 px-3 btn">Edit</a>
+                            {% endif %}
                         </div>
                     </div>
                     <hr>
