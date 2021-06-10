@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="admin-section">
+    <div class="container pt-5">
+    <!--User can create a profile by completing the form-->
+        <div class="row pt-5">
+            <form class="col-12 col-md-8 offset-md-2" method="POST" action="{{ url_for('register') }}">
+                <div class="col-12">
+                    <h1 class="white-text text-center">Register</h1>
+                    <p class="white-text text-center warning-message">Hello site viewer, you've stumbled onto a page you shouldn't be on. It's not your fault, it's mine (probably)</p>
+                    <p class="white-text text-center warning-message">You might be thinking that in registering an account, you'll gain access to something cool, but unfortunately, you won't.
+                        This is simply access to the backend of the site, which is further restricted by things you wouldn't be able to access, and eventually I will log onto the site
+                        and realise someone has made an account, and I'll just delete it since there's no reason for you to have an account. So why not save us both the hassle and simply
+                        move back to the main page.
+                    </p>
+                    <a href="{{ url_for('homepage') }}" class="col-6 offset-3 p-2 mt-5 mb-5 btn">Let's go back to the homepage</a>
+                    <br>
+                <!--Name-->
+                    <div class="row">
+                        <div class="input-field">
+                            <input id="first_name" name="first_name" type="text" pattern="^[a-zA-Z]{2,20}$" class="validate"
+                            oninvalid="this.setCustomValidity('Enter first name. Only alphabetic characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="First Name" minlength="2" maxlength="20" required>
+                        </div>
+                        <div class="input-field">
+                            <input id="last_name" name="last_name" type="text" pattern="^[a-zA-Z]{2,30}$" class="validate"
+                            oninvalid="this.setCustomValidity('Enter last name. Only alphabetic characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="Last Name" minlength="2" maxlength="30" required>
+                        </div>
+                    </div>
+                <!--Username-->
+                    <div class="row">
+                        <div class="input-field">
+                            <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{5,15}$" class="validate"
+                            oninvalid="this.setCustomValidity('Please enter a username between 5 and 15 characters. Only alphanumeric characters are accepted')"
+                            oninput="this.setCustomValidity('')" placeholder="Username" minlength="5" maxlength="15" required>
+                        </div>
+                    </div>
+                <!--Password-->
+                    <div class="row">
+                        <div>
+                            <div class="input-field">
+                                <input id="password" name="password" type="password" pattern="^[a-zA-Z0-9]{5,20}$" minlength="5" maxlength="20" class="validate"
+                                oninvalid="this.setCustomValidity('Please enter a password between 5 and 20 characters. Only alphanumeric characters are accepted')"
+                                oninput="this.setCustomValidity('')" placeholder="Password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <button type="submit" class="col-6 offset-3 btn">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </form>
+        <!--Link for users with profiles who clicked on register by accident-->
+            <div class="col-12 pt-5">
+                <div>
+                    <p class="text-center white-text">
+                        Already Registered? 
+                        <a href="{{ url_for('login') }}" class="btn">Log In!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

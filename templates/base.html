@@ -62,15 +62,17 @@
             {% endwith %}
         </section>
 
-    {% block content %}
-    {% endblock %}
+        <section class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </section>
     
     <footer class="footer d-none d-md-block">
         <div class="container">
             <div class="row">
                 <div class="col-4">
                     <p>
-                        <a href="#" class="disclaimer"><i class="ri-login-circle-line"></i></a>
+                        <a href="{{ url_for('login') }}" class="disclaimer"><i class="ri-login-circle-line"></i></a>
                     </p>
                 </div>
                 <div class="col-4">

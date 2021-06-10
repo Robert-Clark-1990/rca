@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="admin-section">
+    <div class="container pt-5">
+    <!--User Login Page-->
+        <div class="row pt-5">
+            <form class="col-12 col-md-8 offset-md-2" method="POST" action="{{ url_for('login') }}">
+                <div class="col-12">
+                    <h3 class="text-center white-text">Admin Log In</h3>
+                <!--Username-->
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <input id="username" placeholder="Username" name="username" type="text" pattern="^[a-zA-Z0-9]{5,20}$" class="validate login" required>
+                        </div>
+                    </div>
+                <!--Password-->
+                    <div class="row">
+                        <div class="input-field col-12 col-md-8 offset-md-2">
+                            <input id="password" placeholder="Password" name="password" type="password" pattern="^[a-zA-Z0-9]{5,20}$" minlength="5" maxlength="20" class="validate login" required>
+                        </div>
+                    </div>
+                <!--Submit Button-->
+                    <div class="row">
+                        <button type="submit" class="col-6 offset-3 btn">
+                            Sign In
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
