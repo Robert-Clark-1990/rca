@@ -5,155 +5,151 @@
     <div class="container pt-5">
     <!--Form to allow user to input new book details to be added to database-->
         <div class="row form-row">
-            <form class="col-12 pb-5" method="POST" action="{{ url_for('add_book') }}">
+            <form class="col-12 pb-5" method="POST" action="{{ url_for('add_book') }}" enctype="multipart/form-data">
                 <div class="col-12">
                     <h1 class="text-center white-text">Add Book</h1>
                     <br>
 
                 <!--Book Name-->
                     <div class="row">
-                        <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="book_name" name="book_name" type="text" class="materialize-textarea validate"
-                            oninvalid="this.setCustomValidity('Please enter a book name between 2 and 100 characters. Only alphanumeric characters are accepted')"
-                            oninput="this.setCustomValidity('')" placeholder="Book Name" minlength="2" maxlength="100" required></textarea>
-                            <span class="helper-text" data-error="wrong" data-success="right">Please enter a book name between 2 and 100 characters. Only alphanumeric characters are accepted</span>        
+                        <div class="input-field col-12 col-md-8 offset-md-2">   
+                            <input id="book_name" name="book_name" type="text" class="validate" 
+                            minlength="2" maxlength="100" placeholder="Title *" required> 
                         </div>
                     </div>
 
                 <!--Author Name-->
-                    <div class="row">   
+                    <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="book_author" name="book_author" type="text" class="validate"
-                            oninvalid="this.setCustomValidity('Please enter author name between 2 and 50 characters. Only alphanumeric characters are accepted')"
-                            oninput="this.setCustomValidity('')" placeholder="Book Author" minlength="2" maxlength="50" required></textarea>
-                            <span class="helper-text" data-error="wrong" data-success="right">Please enter author name between 2 and 50 characters. Only alphanumeric characters are accepted</span>
+                            <input id="book_author" name="book_author" type="text" class="validate" 
+                            minlength="2" maxlength="100" placeholder="Author *" required> 
                         </div>
                     </div>
 
                 <!--Series Name-->
-                    <div class="row">   
+                    <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="series_name" name="series_name" type="text" class="validate"
-                            oninvalid="this.setCustomValidity('Please enter author name between 2 and 50 characters. Only alphanumeric characters are accepted')"
-                            oninput="this.setCustomValidity('')" placeholder="Series Name" minlength="2" maxlength="50" required></textarea>
-                            <span class="helper-text" data-error="wrong" data-success="right">Please enter series name between 2 and 50 characters. Only alphanumeric characters are accepted</span>
-                        </div>
+                            <select class="form-select validate" id="series_name" name="series_name" aria-label="Default select example" required>
+                                <option selected><p class="text-center">Series *</p></option>
+                                <option value="James Stone">James Stone</option>
+                                <option value="Elliott Armstrong">Elliott Armstrong</option>
+                                <option value="Standalone">Standalone</option>
+                              </select>
+                        </div>        
                     </div>
 
                 <!--Series Number-->
-                    <div class="row">   
+                    <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="series_number" name="series_number" type="text" class="validate"
-                            placeholder="Series Number" minlength="2" maxlength="50" required></textarea>
+                            <input id="series_number" name="series_number" type="text" class="validate" 
+                            minlength="2" maxlength="100" placeholder="Series No *" required>
                         </div>
                     </div>
 
                 <!--Chronological Number-->
-                    <div class="row">   
+                    <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="chronological_number" name="chronological_number" type="text" class="validate"
-                            placeholder="Chronological Number" minlength="2" maxlength="50" required></textarea>
+                            <input id="chronological_number" name="chronological_number" type="text" 
+                                minlength="2" maxlength="100" placeholder="Chronological No">
                         </div>
                     </div>
                 
                 <!--Tagline-->
-                    <div class="row">   
+                    <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="tagline" name="tagline" type="text" class="validate"
-                            placeholder="Tagline" minlength="2" maxlength="3000" required></textarea>
+                            <input id="tagline" name="tagline" type="text" class="validate" 
+                                minlength="2" maxlength="3000" placeholder="Tagline *" required>
                         </div>
                     </div>
             
                 <!--Book Description-->
-                    <div class="row">
+                    <div class="row pb-2">
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="desc_p1" name="desc_p1" class="validate" data-length="3000"
-                            oninvalid="this.setCustomValidity('Enter Book Description up to 3000 characters. Only alphanumeric characters are accepted')"
-                            oninput="this.setCustomValidity('')" placeholder="Paragraph 1" minlength="9" maxlength="3000" required></textarea>
-                            <span class="helper-text" data-error="wrong" data-success="right">Enter Book Description up to 3000 characters. Only alphanumeric characters are accepted</span>
+                            <input id="desc_p1" name="desc_p1" type="text" class="validate" 
+                                minlength="2" maxlength="3000" placeholder="Paragraph 1 *" required>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="desc_p2" name="desc_p2" data-length="3000" placeholder="Paragraph 2"></textarea>
+                            <input id="desc_p2" name="desc_p2" type="text" maxlength="3000" placeholder="Paragraph 2">
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <textarea id="desc_p3" name="desc_p3" data-length="3000" placeholder="Book Info"></textarea>
+                            <input id="desc_p3" name="desc_p3" type="text" maxlength="3000" placeholder="Book Info">
                         </div>
+
                     </div>
 
                 <!--Cover-->
-                    <div class="row">
+                    <div class="row pb-2">
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <label for="cover" class="form-label">Select Book Cover (500px x 800px)</label>
-                            <input class="form-control" type="file" id="cover" name="cover">
+                            <label for="cover" class="form-label text-center white-text">Select Book Cover (500px x 800px) *</label>
+                            <input class="form-control" type="file" id="cover" name="cover" accept=".jpg,.png">
                         </div>
                     </div>
 
                 <!--Links-->
-                    <div class="row">
+                    <div class="row pb-2">
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="link_1" name="link_1" type="text" class="validate count" pattern="(https?:\/\/.*(?))" data-length="400" maxlength="400"
-                            oninvalid="this.setCustomValidity('URL must begin with http(s)')" oninput="this.setCustomValidity('')" placeholder="Amazon UK" required>
-                            <span class="helper-text" data-error="wrong" data-success="right">URL must begin with http(s)</span>
+                            <input id="link_1" name="link_1" type="text" class="validate count" pattern="(https?:\/\/.*(?))" 
+                            data-length="400" maxlength="400" placeholder="Amazon UK Link *" required>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="link_2" name="link_2" type="text" class="validate count" pattern="(https?:\/\/.*(?))" data-length="400" maxlength="400"
-                            oninvalid="this.setCustomValidity('URL must begin with http(s)')" oninput="this.setCustomValidity('')" placeholder="Amazon US" required>
-                            <span class="helper-text" data-error="wrong" data-success="right">URL must begin with http(s)</span>
+                            <input id="link_2" name="link_2" type="text" class="validate count" pattern="(https?:\/\/.*(?))" 
+                            data-length="400" maxlength="400" placeholder="Amazon US Link *" required>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="link_3" name="link_3" type="text" class="validate count" pattern="(https?:\/\/.*(?))" data-length="400" maxlength="400"
-                            oninvalid="this.setCustomValidity('URL must begin with http(s)')" oninput="this.setCustomValidity('')" placeholder="Audible" required>
-                            <span class="helper-text" data-error="wrong" data-success="right">URL must begin with http(s)</span>
+                            <input id="link_3" name="link_3" type="text" class="count" pattern="(https?:\/\/.*(?))" 
+                            data-length="400" maxlength="400" placeholder="Audible Link">
                         </div>
+
                     </div>
                         
                 <!--ISBN-->
-                    <div class="row">
+                    <div class="row pb-2">
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="book_asin" name="book_asin" type="text" pattern="^[a-zA-Z0-9]{9,12}$" class="validate"
-                            oninvalid="this.setCustomValidity('Enter ASIN. Only alphanumeric characters are accepted')"
-                            oninput="this.setCustomValidity('')" placeholder="ISBN No" minlength="9" maxlength="12" required>
-                            <span class="helper-text" data-error="wrong" data-success="right">ASIN/ ISBN can be found in the Product Details section on the Amazon store page for the Book.</span>
+                            <input id="ISBN" name="ISBN" type="text" pattern="^[a-zA-Z0-9]{9,12}$" class="validate"
+                            placeholder="ISBN No *" minlength="9" maxlength="12" required>
                         </div>
                     </div>
 
                 <!--Available Formats-->
-                    <div class="form-check form-check-inline">
-                        <input id="is_ebook" class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="is_ebook">
-                        Ebook
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input id="is_paperback" class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="is_paperback">
-                        Paperback
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input id="is_hardback" class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="is_hardback">
-                        Hardback
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input id="is_audiobook" class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="is_audiobook">
-                        Audiobook
-                        </label>
+                    <div class="row pb-2">
+                        <div class="col-12 col-md-8 offset-md-2">
+                            <p class="white-text">Select Available Formats</p>
+                        </div>
+                        <div class="col-12 col-md-6 offset-md-3 pb-2">
+                            <div class="form-check form-check-inline align-items-center">
+                                <input id="is_ebook" class="form-check-input" type="checkbox" value="true">
+                                <label class="form-check-label white-text" for="is_ebook">
+                                Ebook
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input id="is_paperback" class="form-check-input" type="checkbox" value="true">
+                                <label class="form-check-label white-text" for="is_paperback">
+                                Paperback
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input id="is_hardback" class="form-check-input" type="checkbox" value="true">
+                                <label class="form-check-label white-text" for="is_hardback">
+                                Hardback
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input id="is_audiobook" class="form-check-input" type="checkbox" value="true">
+                                <label class="form-check-label white-text" for="is_audiobook">
+                                Audiobook
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                 <!--Submit Button-->
-                    <div class="row">
-                        <button type="submit" class="col-8 offset-2 btn">
+                    <div class="row pb-5">
+                        <button type="submit" class="col-8 offset-2 btn mb-5">
                             Submit Book
                         </button>
                     </div>  
