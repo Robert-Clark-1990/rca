@@ -1,12 +1,13 @@
 import os
 from flask import (
-    Flask, flash, render_template,
+    Flask, flash, render_template, abort,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from flask_mail import Mail, Message
 
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 
 from config import mail_username, mail_password
 from functools import wraps
@@ -24,6 +25,9 @@ app.config["MAIL_PORT"] = 465
 app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USERNAME"] = mail_username
 app.config["MAIL_PASSWORD"] = mail_password
+app.config["UPLOAD_EXTENSIONS"] = ['.jpg', '.png', '.gif', '.jpeg']
+app.config["UPLOAD_PATH"] = 'static/images'
+app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024
 
 app.secret_key = os.environ.get("SECRET_KEY")
 
@@ -170,6 +174,14 @@ def book(book_id):
 def add_book():
 
     if request.method == "POST":
+        uploaded_file = request.files['cover']
+        filename = secure_filename(uploaded_file.filename)
+        if filename != '':
+            file_ext = os.path.splitext(filename)[1]
+            if file_ext not in app.config["UPLOAD_EXTENSIONS"]:
+                abort(400)
+            uploaded_file.save(
+                os.path.join(app.config["UPLOAD_PATH"], filename))
         add_book = {
             "book_name": request.form.get("book_name"),
             "book_author": request.form.get("book_author"),
@@ -180,7 +192,7 @@ def add_book():
             "desc_p1": request.form.get("desc_p1"),
             "desc_p2": request.form.get("desc_p2"),
             "desc_p3": request.form.get("desc_p3"),
-            "cover": request.form.get("cover"),
+            "cover": f"/static/images/{uploaded_file.filename}",
             "link_1": request.form.get("link_1"),
             "link_2": request.form.get("link_2"),
             "link_3": request.form.get("link_3"),
@@ -189,7 +201,6 @@ def add_book():
             "is_paperback": request.form.get("is_paperback"),
             "is_hardback": request.form.get("is_hardback"),
             "is_audiobook": request.form.get("is_audiobook"),
-
         }
         mongo.db.books.insert_one(add_book)
 
