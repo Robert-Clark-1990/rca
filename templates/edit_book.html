@@ -5,31 +5,38 @@
     <div class="container pt-5">
     <!--Form to allow user to input new book details to be added to database-->
         <div class="row form-row">
-            <form class="col-12 pb-5" method="POST" action="{{ url_for('add_book') }}" enctype="multipart/form-data">
+            <form class="col-12 pb-5" method="POST" action="{{ url_for('edit_book', book_id=book._id) }}" enctype="multipart/form-data">
                 <div class="col-12">
-                    <h1 class="text-center white-text">Add Book</h1>
+                    <h1 class="text-center white-text"><i class="ri-edit-2-line"></i> Edit Book</h1>
                     <br>
-
+                    <p class="text-center white-text">
+                        Didn't mean to edit this book? 
+                        <a href="{{ url_for ('books') }}" class="btn">Go Back</a>
+                        </p>
+                        <br>
                 <!--Book Name-->
                     <div class="row">
                         <div class="input-field col-12 col-md-8 offset-md-2">   
-                            <input id="book_name" name="book_name" type="text" class="validate" 
+                            <input id="book_name" name="book_name" type="text" class="validate" value="{{ book.book_name }}" 
                             minlength="2" maxlength="100" placeholder="Title *" required> 
                         </div>
                     </div>
 
                 <!--Author Name-->
-                    <div class="row pb-2">   
+                    <div class="row pb-2">  
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="book_author" name="book_author" type="text" class="validate" 
+                            <input id="book_author" name="book_author" type="text" class="validate" value="{{ book.book_author }}" 
                             minlength="2" maxlength="100" placeholder="Author *" required> 
                         </div>
                     </div>
 
                 <!--Series Name-->
-                    <div class="row pb-2">   
+                    <div class="row pb-2">
+                        <div class="col-12 col-md-8 offset-md-2">
+                            <i class="white-text">Don't forget to set again.</i>
+                        </div>  
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <select class="form-select validate" id="series_name" name="series_name" aria-label="Default select example" required>
+                            <select class="form-select validate" id="series_name" name="series_name" aria-label="Default select example" value="{{ book.series_name }}" required>
                                 <option selected><p class="text-center">Series *</p></option>
                                 <option value="James Stone">James Stone</option>
                                 <option value="Elliott Armstrong">Elliott Armstrong</option>
@@ -41,7 +48,7 @@
                 <!--Series Number-->
                     <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="series_number" name="series_number" type="text" class="validate" 
+                            <input id="series_number" name="series_number" type="text" class="validate" value="{{ book.series_number }}" 
                             minlength="2" maxlength="100" placeholder="Series No *" required>
                         </div>
                     </div>
@@ -49,7 +56,7 @@
                 <!--Chronological Number-->
                     <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="chronological_number" name="chronological_number" type="text" 
+                            <input id="chronological_number" name="chronological_number" type="text" value="{{ book.chronological_number }}" 
                                 minlength="2" maxlength="100" placeholder="Chronological No">
                         </div>
                     </div>
@@ -57,7 +64,7 @@
                 <!--Tagline-->
                     <div class="row pb-2">   
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="tagline" name="tagline" type="text" class="validate" 
+                            <input id="tagline" name="tagline" type="text" class="validate" value="{{ book.tagline }}"
                                 minlength="2" maxlength="3000" placeholder="Tagline *" required>
                         </div>
                     </div>
@@ -65,42 +72,54 @@
                 <!--Book Description-->
                     <div class="row pb-2">
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="desc_p1" name="desc_p1" type="text" class="validate" 
+                            <input id="desc_p1" name="desc_p1" type="text" class="validate" value="{{ book.desc_p1 }}"
                                 minlength="2" maxlength="3000" placeholder="Paragraph 1 *" required>
                         </div>
 
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="desc_p2" name="desc_p2" type="text" maxlength="3000" placeholder="Paragraph 2">
+                            <input id="desc_p2" name="desc_p2" type="text" maxlength="3000" value="{{ book.desc_p2 }}" placeholder="Paragraph 2">
                         </div>
 
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="desc_p3" name="desc_p3" type="text" maxlength="3000" placeholder="Book Info">
+                            <input id="desc_p3" name="desc_p3" type="text" maxlength="3000" value="{{ book.desc_p3 }}" placeholder="Book Info">
                         </div>
 
                     </div>
 
                 <!--Cover-->
                     <div class="row pb-2">
+                        <div class="div col-12 col-md-8 offset-md-2">
+                            <img class="cover-preview" src="{{ book.cover }}" alt="{{ book.book_name }}">
+                            <p class="white-text">{{ book.cover }}</p>
+                        </div>
+                        <div class="col-12 col-md-8 offset-md-2">
+                            <div class="form-check">
+                                <input id="new_cover_check" name="new_cover_check" class="form-check-input" type="checkbox" value="true">
+                                <label class="form-check-label white-text" for="new_cover_check">
+                                    Upload New Cover?
+                                </label>
+                            </div>
+                        </div> 
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <label for="cover" class="form-label text-center white-text">Select Book Cover (500px x 800px) *</label>
-                            <input class="form-control" type="file" id="cover" name="cover" accept=".jpg,.png">
+                            <label for="cover" class="form-label text-center white-text">Select Book Cover (500px x 800px)</label>
+                            <input class="form-control" type="file" id="cover" name="cover" value="{{ book.cover }}" accept=".jpg,.png">
                         </div>
                     </div>
 
                 <!--Links-->
                     <div class="row pb-2">
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="link_1" name="link_1" type="text" class="validate count" pattern="(https?:\/\/.*(?))" 
+                            <input id="link_1" name="link_1" type="text" class="validate count"  pattern="(https?:\/\/.*(?))" value="{{ book.link_1 }}"
                             data-length="400" maxlength="400" placeholder="Amazon UK Link *" required>
                         </div>
 
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="link_2" name="link_2" type="text" class="validate count" pattern="(https?:\/\/.*(?))" 
+                            <input id="link_2" name="link_2" type="text" class="validate count" pattern="(https?:\/\/.*(?))" value="{{ book.link_2 }}"
                             data-length="400" maxlength="400" placeholder="Amazon US Link *" required>
                         </div>
 
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="link_3" name="link_3" type="text" class="count" pattern="(https?:\/\/.*(?))" 
+                            <input id="link_3" name="link_3" type="text" class="count" pattern="(https?:\/\/.*(?))" value="{{ book.link_3 }}"
                             data-length="400" maxlength="400" placeholder="Audible Link">
                         </div>
 
@@ -109,7 +128,7 @@
                 <!--ISBN-->
                     <div class="row pb-2">
                         <div class="input-field col-12 col-md-8 offset-md-2">
-                            <input id="ISBN" name="ISBN" type="text" pattern="^[a-zA-Z0-9]{9,12}$" class="validate"
+                            <input id="ISBN" name="ISBN" type="text" pattern="^[a-zA-Z0-9]{9,12}$" class="validate" value="{{ book.ISBN }}"
                             placeholder="ISBN No *" minlength="9" maxlength="12" required>
                         </div>
                     </div>
@@ -150,7 +169,7 @@
                 <!--Submit Button-->
                     <div class="row pb-5">
                         <button type="submit" class="col-8 offset-2 btn mb-5">
-                            Submit Book
+                            UPDATE
                         </button>
                     </div>  
                 </div>

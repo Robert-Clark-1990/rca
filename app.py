@@ -214,6 +214,55 @@ def add_book():
     return render_template("add_book.html")
 
 
+# Route for editing a book in the library
+@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
+@login_required
+def edit_book(book_id):
+
+    if request.method == "POST":
+        # converts checkbox ticks to dict to return values
+        post_req = request.form.to_dict()
+
+        edit_book = {
+            "book_name": request.form.get("book_name"),
+            "book_author": request.form.get("book_author"),
+            "series_name": request.form.get("series_name"),
+            "series_number": request.form.get("series_number"),
+            "chronological_number": request.form.get("chronological_number"),
+            "tagline": request.form.get("tagline"),
+            "desc_p1": request.form.get("desc_p1"),
+            "desc_p2": request.form.get("desc_p2"),
+            "desc_p3": request.form.get("desc_p3"),
+            "cover": (cover),
+            "link_1": request.form.get("link_1"),
+            "link_2": request.form.get("link_2"),
+            "link_3": request.form.get("link_3"),
+            "ISBN": request.form.get("ISBN"),
+            "is_ebook": True if post_req.get('is_ebook') else False,
+            "is_paperback": True if post_req.get('is_paperback') else False,
+            "is_hardback": True if post_req.get('is_hardback') else False,
+            "is_audiobook": True if post_req.get('is_audiobook') else False,
+        }
+        mongo.db.books.update({"_id": ObjectId(book_id)}, edit_book)
+        flash("Book Successfully Updated")
+        return redirect(url_for("books"))
+
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+
+    return render_template("edit_book.html", book=book)
+
+
+# Route to delete a book
+@app.route("/delete_book/<book_id>")
+@login_required
+def delete_book(book_id):
+
+    mongo.db.books.remove({"_id": ObjectId(book_id)})
+    flash("Book Successfully Deleted")
+
+    return redirect(url_for("books"))
+
+
 # --------------------------ABOUT---------------------------- #
 
 
