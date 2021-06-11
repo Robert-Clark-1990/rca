@@ -174,7 +174,11 @@ def book(book_id):
 def add_book():
 
     if request.method == "POST":
+        # uploads file
         uploaded_file = request.files['cover']
+        # converts checkbox ticks to dict to return values
+        post_req = request.form.to_dict()
+        # sanitizes filename provided by client
         filename = secure_filename(uploaded_file.filename)
         if filename != '':
             file_ext = os.path.splitext(filename)[1]
@@ -197,10 +201,10 @@ def add_book():
             "link_2": request.form.get("link_2"),
             "link_3": request.form.get("link_3"),
             "ISBN": request.form.get("ISBN"),
-            "is_ebook": request.form.get("is_ebook"),
-            "is_paperback": request.form.get("is_paperback"),
-            "is_hardback": request.form.get("is_hardback"),
-            "is_audiobook": request.form.get("is_audiobook"),
+            "is_ebook": True if post_req.get('is_ebook') else False,
+            "is_paperback": True if post_req.get('is_paperback') else False,
+            "is_hardback": True if post_req.get('is_hardback') else False,
+            "is_audiobook": True if post_req.get('is_audiobook') else False,
         }
         mongo.db.books.insert_one(add_book)
 
