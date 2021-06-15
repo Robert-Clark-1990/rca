@@ -233,7 +233,7 @@ def edit_book(book_id):
             "desc_p1": request.form.get("desc_p1"),
             "desc_p2": request.form.get("desc_p2"),
             "desc_p3": request.form.get("desc_p3"),
-            "cover": (cover),
+            "cover": "cover",
             "link_1": request.form.get("link_1"),
             "link_2": request.form.get("link_2"),
             "link_3": request.form.get("link_3"),

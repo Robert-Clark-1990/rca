@@ -167,13 +167,16 @@
                     </div>
 
                 <!--Submit Button-->
-                    <div class="row pb-5">
-                        <button type="submit" class="col-8 offset-2 btn mb-5">
+                    <div class="row pb-1">
+                        <button type="submit" class="col-8 offset-2 btn">
                             UPDATE
                         </button>
                     </div>  
                 </div>
             </form>
+            <div class="col-8 offset-2 pb-5">
+                <a href="{{ url_for ('delete_book', book_id=book._id) }}" class="danger-btn">Delete Book</a>
+            </div>
         </div>
     </div>
 </section>
